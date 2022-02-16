@@ -21791,7 +21791,7 @@ module.exports = function (_EventEmitter) {
 
       // Contact URI.
       else {
-          this._configuration.contact_uri = new URI('sip', Utils.createRandomToken(8), this._configuration.via_host, null, { transport: 'ws' });
+          this._configuration.contact_uri = new URI('sip', Utils.createRandomToken(8), this._configuration.via_host, null, { transport: 'wss' });
         }
 
       this._contact = {
@@ -21806,7 +21806,7 @@ module.exports = function (_EventEmitter) {
           var contact = '<';
 
           if (anonymous) {
-            contact += this.temp_gruu || 'sip:anonymous@anonymous.invalid;transport=ws';
+            contact += this.temp_gruu || 'sip:anonymous@anonymous.invalid;transport=wss';
           } else {
             contact += this.pub_gruu || this.uri.toString();
           }
